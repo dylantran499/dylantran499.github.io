@@ -24,6 +24,7 @@
 
 </head>
 <body class="board">
+	
 	<!-- HTML for the box -->
 	<div class="box">?</div>
 
@@ -61,7 +62,7 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var positionX = 0
+			var positionX = 100
 			var points = 0
 			var speed = 10
 
@@ -78,6 +79,10 @@
 				if (positionX >= boardWidth) {
 					speed = -speed;
 				};
+
+				if (positionX <= 0) {
+					speed = -speed;
+				};
 			};
 			
 			
@@ -89,9 +94,18 @@
 			*/
 			function handleBoxClick() {
 				points = points + 1;
-				positionX = 0;
+				positionX = 100;
 				changeBoxText(points);
 				speed = speed + 3;
+
+				if (speed >= 0) {
+					speed = speed + 3;
+				}
+				else if (speed <= 0) {
+					speed = speed - 3;
+				};
+
+
 			};
 		})();
 	</script>
