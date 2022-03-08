@@ -27,6 +27,7 @@ var background = function (window) {
         
         // ANIMATION VARIABLES HERE:
         var tree;
+        var buildings = [];
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -56,12 +57,20 @@ var background = function (window) {
 
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
+           
+            for(var i = 0; i < 5; i++) { 
+                var buildingHeight = 300; // creates a variable called buildingHeight that holds the height of the building in pixels
+                var building = draw.rect(75,buildingHeight,'LightGray','Black',1); // creates a variable called building that holds the data for the drawn building
+                building.x = 200*i; // positions the x of each building 200 pixels from the next building 
+                building.y = groundY-buildingHeight; // positions the y of each building off groundY-buildingHeight
+                background.addChild(building); // adds buildings in the background
+                buildings.push(building); // push each building to the building array
+            }
             
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png'); //reassigns the drawn image tree to the variable tree
             tree.x = canvasWidth - 600; // assigns an x value to the tree
-            tree.y = groundY - 250; // assigns an y value to the tree
+            tree.y = groundY - 120; // assigns an y value to the tree
             background.addChild(tree); // draws the tree in the background
             tree.scaleX = 0.5; // changes the moon scale on the x-axis
             tree.scaleY = 0.5; // changes the moon scale on the y-axis
@@ -85,7 +94,14 @@ var background = function (window) {
             }
             
             // TODO 5: Part 2 - Parallax
-            
+            //loops the buildings and moves them to the left by 0.5 pixels
+            for (var i = 0; i < buildings.length; i++) {
+                buildings[i].x = buildings[i].x - 0.5; //moves the building's x position by .5 pixels
+                if (buildings[i].x < 0) { // checks to see if the building's x pos is off the left side and if it is it resets 
+                    buildings[i].x = canvasWidth;
+                }
+            }
+        
 
         } // end of update function - DO NOT DELETE
         
