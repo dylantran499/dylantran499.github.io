@@ -112,7 +112,8 @@ function createReward(x, y) {
             console.log('The reward has hit Halle');
             game.changeIntegrity(10);
             game.increaseScore(10);
-            reward.fadeOut();
+            reward.                                                
+            fadeOut();
          };
 
      }
