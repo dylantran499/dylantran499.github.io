@@ -37,7 +37,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'cyan');
+            var backgroundFill = draw.rect(canvasWidth,groundY,'black');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
@@ -70,7 +70,7 @@ var background = function (window) {
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png'); //reassigns the drawn image tree to the variable tree
             tree.x = canvasWidth - 600; // assigns an x value to the tree
-            tree.y = groundY - 120; // assigns an y value to the tree
+            tree.y = groundY - 230; // assigns an y value to the tree
             background.addChild(tree); // draws the tree in the background
             tree.scaleX = 0.5; // changes the moon scale on the x-axis
             tree.scaleY = 0.5; // changes the moon scale on the y-axis

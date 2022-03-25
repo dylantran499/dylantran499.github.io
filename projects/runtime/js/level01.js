@@ -20,9 +20,9 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 600, "y": groundY - 50},
                 { "type": "sawblade", "x": 900, "y": groundY - 50},
 
-                { "type": "enemy", "x": 400, "y": groundY - 50},
-                { "type": "enemy", "x": 600, "y": groundY - 50},
-                { "type": "enemy", "x": 800, "y": groundY - 50},
+                { "type": "enemy", "x": 400, "y": groundY - 140},
+                { "type": "enemy", "x": 1000, "y": groundY - 140},
+                { "type": "enemy", "x": 1500, "y": groundY - 140},
 
                 { "type": "reward", "x": 1000, "y": groundY - 50},
                 { "type": "reward", "x": 1100, "y": groundY - 50},
@@ -51,19 +51,20 @@ var level01 = function (window) {
         
     function createEnemy(x, y) {
             var enemy = game.createGameItem('enemy',25); //creating the game item and stowing it in the variable enemy
-        var redSquare = draw.rect(50,50,'red'); //creates rectangle and stoes as redSquare
-        redSquare.x = -25; 
-        redSquare.y = -25; 
-        enemy.addChild(redSquare); //add the red square tp the enemy game item
+        var zombie = draw.bitmap('img/zombie.png'); //creates rectangle and stores as redSquare
+        zombie.x = -25; 
+        zombie.y = -25; 
+        enemy.addChild(zombie); //add the red square tp the enemy game item
 
         enemy.x = x;
         enemy.y = y;
+        enemy.scaleX = 0.2; // changes the moon scale on the x-axis
+        enemy.scaleY = 0.2; // changes the moon scale on the y-axis
 
         game.addGameItem(enemy); //adds enemy to game               
 
         enemy.velocityX = -1; //causes the enemy to move 1 pixel to the left
 
-        enemy.rotationalVelocity = 5;
         enemy.onPlayerCollision = function() {
             console.log('The enemy has hit Halle');
             game.changeIntegrity(-10);
