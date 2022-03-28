@@ -70,10 +70,10 @@ var background = function (window) {
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png'); //reassigns the drawn image tree to the variable tree
             tree.x = canvasWidth - 600; // assigns an x value to the tree
-            tree.y = groundY - 230; // assigns an y value to the tree
+            tree.y = groundY - 460; // assigns an y value to the tree
             background.addChild(tree); // draws the tree in the background
-            tree.scaleX = 0.5; // changes the moon scale on the x-axis
-            tree.scaleY = 0.5; // changes the moon scale on the y-axis
+            
+            
             
         } // end of render function - DO NOT DELETE
         
