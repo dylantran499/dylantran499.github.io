@@ -93,6 +93,7 @@ var level01 = function (window) {
 
     enemy2.x = x;
     enemy2.y = y;
+    
 
     enemy2.addChild(skeleton); //add the red square tp the enemy game item
 
